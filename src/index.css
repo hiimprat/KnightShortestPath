@@ -32,15 +32,21 @@ code {
 }
 
 .square:focus {
-  outline-width: 1px;
-  outline-style: dashed;
-  outline-color: red;
+  border-width: 0.1px;
+  border-style: solid; 
+  border-color: black;
 }
 
-.dark-square{
+.dark-square {
   background-color: RGB(209,139,71);
 }
   
-.light-square{
-      background-color: RGB(255,205,158);
+.light-square {
+  background-color: RGB(255,205,158);
+}
+.square-selected { 
+  opacity:50%;
+  background-color:cyan;
+  border-color:blue;
+  border-width:10px;
 }
