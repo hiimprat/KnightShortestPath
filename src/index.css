@@ -49,4 +49,5 @@ code {
   background-color:cyan;
   border-color:blue;
   border-width:10px;
+  transition: background-color 2.5s, border-color 2.5s, transform 2.5s;
 }

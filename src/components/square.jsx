@@ -21,6 +21,11 @@ function Square(props){
             setPlaced(false);
             setPos(-1);
         }
+        else if(destSelected && value == destPos){
+            setStyle({}); 
+            setDest(false);
+            setDestPos(-1);
+        }
         else if(!placed){
             setStyle({backgroundImage: "url('"+Knight+"')"});
             setPlaced(true);
