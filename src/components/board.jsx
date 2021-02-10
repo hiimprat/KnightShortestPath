@@ -1,5 +1,5 @@
 import React, { useEffect,useContext,useState} from 'react';
-import '../index.css';
+import './chess.css';
 import Knight from '../images/knight.svg'
 import Square from './square';
 import Button from '@material-ui/core/Button';
@@ -9,15 +9,8 @@ import DestinationSelContext from '../contexts/DestinationSelContext';
 import chessPositions from '../constants';
 import DestPosContext from '../contexts/DestPosContext';
 
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
-}
 
 function Board(props){
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-    }
     //const forceUpdate = useForceUpdate();
     const [board,setBoard]= useState([]);
     //const boardPieces = [];
@@ -81,36 +74,36 @@ function Board(props){
         setBoard(newBoard);
     }
     
-    const possiblePositions=(pos,possibleMoves)=>{
-        var i= (parseInt(pos/8));
-        var j= pos%8;
+    const possiblePositions=(posVal,possibleMoves)=>{
+        var i= (parseInt(posVal/8));
+        var j= posVal%8;
+        
         if(((i-2)*8)>=0 && (j-1)>=0){
-            possibleMoves.push(pos-17);
+            if(posVal-17!=pos)possibleMoves.push(posVal-17);
         }
         if(((i-1)*8)>=0 && (j+1)<8){
-            possibleMoves.push(pos-15);
+            if(posVal-15!=pos)possibleMoves.push(posVal-15);
         }
         if(((i-1)*8)>=0 && (j-2)>=0){
-            possibleMoves.push(pos-10);
+            if(posVal-10!=pos)possibleMoves.push(posVal-10);
         }
         
         if(((i-1)*8)>=0 && (j+2)<8){
-            possibleMoves.push(pos-6);
+            if(posVal-6!=pos)possibleMoves.push(posVal-6);
         }
 
         if(((i+1)*8)<64 && (j-2)>=0){
-            possibleMoves.push(pos+6);
+            if(posVal+6!=pos)possibleMoves.push(posVal+6);
         }
         if(((i+1)*8)<64 && (j+2)<8){
-            possibleMoves.push(pos+10);
+            if(posVal+10!=pos)possibleMoves.push(posVal+10);
         }
         if(((i+2)*8)<64 && (j-1)>=0){
-            possibleMoves.push(pos+15); 
+            if(posVal+15!=pos)possibleMoves.push(posVal+15); 
         }
         if(((i+2)*8)<64 && (j+1)<8){
-            possibleMoves.push(pos+17);
+            if(posVal+17!=pos)possibleMoves.push(posVal+17);
         }
-        
     }
     const onClickedFunc=(value)=>{   
         console.log(value);
@@ -140,12 +133,12 @@ function Board(props){
     
     
     return(
-        <div align="center" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+        <div align="center" style={{display: 'flex',  justifyContent:'center', height: '100vh'}}>
             <div class="container">
                 {board}
-                <Button variant="contained" disabled={((destSelected && placed)||!calculating)?false:true} onClick={calc}>Calculate</Button>
+                <Button variant="contained" style={{marginTop:'2vh',backgroundColor:'#2a4d69',color:'#adcbe3'}} disabled={((destSelected && placed)||!calculating)?false:true} onClick={calc}>Calculate</Button>
             </div>
-            
+             
         </div>
     );
     

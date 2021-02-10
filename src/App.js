@@ -4,7 +4,9 @@ import KnightPlacedContext from './contexts/KnightPlacedContext';
 import KnightPosContext from './contexts/KnightPosContext';
 import DestinationSelContext from './contexts/DestinationSelContext';
 import DestPosContext from './contexts/DestPosContext';
-import Chess  from './components/chess';
+import Board from './components/board';
+import Header from './components/Header';
+import './App.css';
 function App() {
 
   const [placed, setPlaced] = useState(false);
@@ -13,12 +15,13 @@ function App() {
   const [destPos,setDestPos] = useState(-1);
   return (
     <div className="App">
+      <Header/>
       <DestPosContext.Provider value={{destPos,setDestPos}}>
         <DestinationSelContext.Provider value ={{destSelected,setDest}}>
           <KnightPlacedContext.Provider value = {{placed,setPlaced}}>
             <KnightPosContext.Provider value = {{pos,setPos}}>
               <BrowserRouter>
-                <Route exact path="/" component={Chess} /> {}
+                <Route exact path="/" component={Board} /> {}
               </BrowserRouter>
             </KnightPosContext.Provider>
           </KnightPlacedContext.Provider>

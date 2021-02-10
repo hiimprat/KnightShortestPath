@@ -1,0 +1,43 @@
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .square {
+    background: transparent;
+    border: 1px solid transparent;
+    float: left;
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 6rem;
+    height: 5vh;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 2.5vw;
+  }
+  
+  .square:focus {
+    border-width: 0.1px;
+    border-style: solid; 
+    border-color: black;
+  }
+  
+  .dark-square {
+    background-color: RGB(209,139,71);
+  }
+    
+  .light-square {
+    background-color: RGB(255,205,158);
+  }
+  .square-selected { 
+    opacity:50%;
+    background-color:cyan;
+    border-color:blue;
+    border-width:7px;
+    transition: background-color 2s, border-color 2s, transform 2s;
+  }
+  .container{
+    margin-top:20vh;
+  }

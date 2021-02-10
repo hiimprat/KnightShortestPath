@@ -1,5 +1,5 @@
 import React, { useContext,useState} from 'react';
-import '../index.css';
+import './chess.css';
 import Knight from '../images/knight.svg'
 import KnightPlacedContext from '../contexts/KnightPlacedContext';
 import KnightPosContext from '../contexts/KnightPosContext';
